@@ -5,11 +5,11 @@ import Observation
 
 struct SecondCoastView: View {
 
-    var viewModel: ViewModel
+    var gameService: GameService
 
     var body: some View {
 
-        @Bindable var viewModel = viewModel
+        @Bindable var gameService = gameService
 
         VStack {
 
@@ -17,12 +17,12 @@ struct SecondCoastView: View {
                 .font(.largeTitle)
                 .monospaced()
 
-            CharacterView(items: viewModel.rightListItems)
+            CharacterView(items: gameService.rightListItems)
                 .dropDestination(for: String.self) { items, location in
                     for item in items {
-                        viewModel.leftListItems.removeAll { $0 == item }
-                        if !viewModel.rightListItems.contains(item) {
-                            viewModel.rightListItems.append(item)
+                        gameService.leftListItems.removeAll { $0 == item }
+                        if !gameService.rightListItems.contains(item) {
+                            gameService.rightListItems.append(item)
                         }
                     }
                     return true

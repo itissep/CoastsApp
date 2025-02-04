@@ -4,7 +4,7 @@ import UniformTypeIdentifiers
 import Observation
 
 @Observable
-class ViewModel {
+class GameService {
 
     private var contentEntity = Entity()
 
@@ -15,7 +15,6 @@ class ViewModel {
             check()
         }
     }
-
 
     var rightListItems = [String]() {
         didSet {
